@@ -15,7 +15,7 @@ struct TagItem: View {
     var verticalPadding: CGFloat = 6.0
     var body: some View {
         VStack {
-            ZStack {
+            ZStack { // ZStack을 사용한 이유는??
                 Text(text)
                     .lineLimit(1)
                     .foregroundColor(textcolor)
