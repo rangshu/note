@@ -10,18 +10,19 @@ import CoreData
 
 struct MenuListView: View {
     @State private var query = ""
+    @State private var addNoteTag:Int? = nil
     
     let quickNote: MenuItem = Constants.quickNote
     let menuList: [MenuItem] = [Constants.icloud]
-
+    
     var body: some View {
-//        NavigationSplitView {
-//            // menu
-//        } detail: {
-//            // detail view for each of the menu item
-//        }
+        //        NavigationSplitView {
+        //            // menu
+        //        } detail: {
+        //            // detail view for each of the menu item
+        //        }
         NavigationStack {
-       
+            
             // stack은 항상 제거되지 않은 가장 최근에 추가된 view를 표시
             // root view는 제거할 수 없음
             VStack {
@@ -58,7 +59,7 @@ struct MenuListView: View {
                                 }
                             }
                         }
-                                        
+                        
                     } header: {
                         Text("iCloud")
                             .textCase(nil)
@@ -99,8 +100,12 @@ struct MenuListView: View {
                                   systemImage: "folder.badge.plus")
                         }
                         Spacer()
-                        Button(action: addNote) {
-                            Label("", systemImage: "square.and.pencil")
+                        ZStack {
+                            NavigationLink {
+                                Text("HI")
+                            } label: {
+                                Label("Write Note", systemImage: "square.and.pencil")
+                            }
                         }
                     }
                 }
@@ -113,7 +118,7 @@ struct MenuListView: View {
             } // end of toolbar
         }
     }
-                                      
+    
     private func addFolder() {
         print("add Folder")
     }
