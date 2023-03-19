@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
-import CoreData
+import RealmSwift
 
 struct MenuListView: View {
+    @ObservedObject var app: RealmSwift.App
+    @EnvironmentObject var errorHandler: ErrorHandler
+    
     @State private var query = ""
     @State private var addNoteTag:Int? = nil
     
@@ -137,6 +140,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView()
+        MenuListView(app: app)
     }
 }
