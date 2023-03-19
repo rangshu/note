@@ -105,7 +105,7 @@ struct MenuListView: View {
                         Spacer()
                         ZStack {
                             NavigationLink {
-                                Text("HI")
+                                WriteVIew()
                             } label: {
                                 Label("Write Note", systemImage: "square.and.pencil")
                             }
