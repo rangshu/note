@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct NoteData {
-    let title: String
-    let content: String
+class NoteData: Object {
+    @Persisted var title: String
+    @Persisted var content: String
 }

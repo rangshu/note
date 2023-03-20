@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum MenuLevel {
-    case root
-    case main
-    case sub
-    case detail
+enum MenuLevel: String, PersistableEnum, CaseIterable {
+    case root = "root"
+    case main = "main"
+    case sub = "sub"
+    case detail = "detail"
 }
