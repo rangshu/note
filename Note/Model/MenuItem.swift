@@ -13,7 +13,7 @@ class MenuItem: Object, ObjectKeyIdentifiable{
     @Persisted var name: String
     @Persisted var icon: String?
     @Persisted var level: MenuLevel = .main
-    @Persisted var noteList: List<NoteData>
+    @Persisted var noteList: RealmSwift.List<NoteData>
     
     var subItems: [MenuItem]?
     

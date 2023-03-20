@@ -9,6 +9,12 @@ import Foundation
 import RealmSwift
 
 class NoteData: Object {
-    @Persisted var title: String
-    @Persisted var content: String
+    @Persisted var title: String = ""
+    @Persisted var content: String = ""
+    
+    convenience init(title: String, content: String) {
+        self.init()
+        self.title = title
+        self.content = content
+    }
 }
