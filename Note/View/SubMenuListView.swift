@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubMenuListView: View {
-    @State var item: MenuItem
+    @State var item: _MenuItem
     
     var body: some View {
         Text("Sub Menu List")

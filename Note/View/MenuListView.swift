@@ -9,14 +9,15 @@ import SwiftUI
 import RealmSwift
 
 struct MenuListView: View {
+    @StateObject var viewModel = MainViewModel()
     @ObservedObject var app: RealmSwift.App
     @EnvironmentObject var errorHandler: ErrorHandler
     
     @State private var query = ""
     @State private var addNoteTag:Int? = nil
     
-    let quickNote: MenuItem = Constants.quickNote
-    let menuList: [MenuItem] = [Constants.icloud]
+    let quickNote: _MenuItem = Constants.quickNote
+    let menuList: [_MenuItem] = [Constants.icloud]
     
     var body: some View {
         //        NavigationSplitView {
@@ -29,7 +30,7 @@ struct MenuListView: View {
             // stack은 항상 제거되지 않은 가장 최근에 추가된 view를 표시
             // root view는 제거할 수 없음
             VStack {
-                List {
+                SwiftUI.List {
                     // quick note
                     NavigationLink(destination: SubMenuListView(item: Constants.defaultMenuItem)) {
                         HStack {
@@ -105,7 +106,7 @@ struct MenuListView: View {
                         Spacer()
                         ZStack {
                             NavigationLink {
-                                WriteView()
+                                WriteView(viewModel: viewModel.writeViewModel)
                             } label: {
                                 Label("Write Note", systemImage: "square.and.pencil")
                             }
