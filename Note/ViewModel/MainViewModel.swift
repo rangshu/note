@@ -8,5 +8,11 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
+    lazy var writeViewModel: WriteViewModel = {
+        return WriteViewModel()
+    }()
     
+    init() {
+
+    }
 }
