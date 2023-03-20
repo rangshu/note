@@ -9,6 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct WriteView: View {
+    
+    @ObservedObject var viewModel: WriteViewModel
+    
     @State private var title: String = ""
     @State private var contents: String = ""
     
@@ -40,7 +43,9 @@ struct WriteView: View {
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done", action: {})
+                Button("Done", action: {
+                    viewModel.save(title: title, contents: contents)
+                })
             }
         } // .toolbar end
     }
@@ -48,6 +53,6 @@ struct WriteView: View {
 
 struct WriteVIew_Previews: PreviewProvider {
     static var previews: some View {
-        WriteView()
+        WriteView(viewModel: WriteViewModel())
     }
 }
